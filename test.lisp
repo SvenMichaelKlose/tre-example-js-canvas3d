@@ -1,4 +1,4 @@
-;;;;; Software–rendered 3D canvas – Copyright (c) 2013 Sven Michael Klose <pixel@copei.de>
+; Software–rendered 3D canvas – Copyright (c) 2013 Sven Michael Klose <pixel@copei.de>
 
 (defun whirl (vertices faces)
   (do-wait 10
@@ -12,6 +12,7 @@
 
 (defun junicube ()
   (document-extend)
+  (= document.body.style.margin 0)
   (disable-scrollbars)
   (with ((vertices faces) (make-3d-object *vertices* *faces*))
     (= *texture* (make-video :width 640 :height 480 :webm "video.webm" :loop? t :autoplay? t))
