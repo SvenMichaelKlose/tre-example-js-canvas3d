@@ -10,10 +10,6 @@
 
 (= *application-name* "Software-rendered 3D test")
 (= (transpiler-funinfo-comments? *js-transpiler*) nil)
-;(= (transpiler-backtrace? *js-transpiler*) t)
-;(= (transpiler-cps-transformation? *js-transpiler*) t)
-;(= (transpiler-inject-debugging? *js-transpiler*) t)
-;(= (transpiler-dump-passes? *js-transpiler*) t)
 
 (defun make-site ()
   (unix-sh-mkdir "compiled" :parents t)
@@ -50,24 +46,20 @@
                                    "objects/element.lisp"
                                    "objects/document.lisp"
                                    "objects/extend.lisp"
+                                   "objects/video.lisp"
+                                   "objects/canvas.lisp"
                                    "viewport.lisp"
                                    "disable-scrollbars.lisp"))
                           (list+ "js/event/"
                                  '("native.lisp"
                                    "keycodes.lisp")))))
-         (list+ "caroshi/"
-	            `("base/dom/objects/video.lisp"
-	              "base/dom/objects/canvas.lisp"
-	              "base/tk/preload-images.lisp"
-	              "base/tk/widgets/progress.lisp"
-	              "base/tk/widgets/progressmeter.lisp"
-	              "base/tk/widgets/image-loader.lisp"
-	              "base/init/predefined-symbols.lisp"
-	              "base/init/application.lisp"
-	              "base/init/onload.lisp"))
+         (list+ "caroshi/lib/init/"
+	            '("predefined-symbols.lisp"
+	              "application.lisp"
+	              "onload.lisp"))
 
          '("box.lisp"
-           "caroshi/base/db/btree.lisp"
+           "caroshi/lib/db/btree.lisp"
            "toplevel.lisp"
            "test.lisp"))
          :transpiler  *js-transpiler*
