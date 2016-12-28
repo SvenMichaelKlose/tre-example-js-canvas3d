@@ -55,13 +55,13 @@
          v0 0
          v1 0
          v2 768
-         delta   (- (+ (* u0 v1) (* v0 u2) (* u1 v2)) (* v1 u2) (* v0 u1) (* u0 v2))
-         delta-a (- (+ (* x1 v1) (* v0 x2) (* x1 v2)) (* v1 x2) (* v0 x1) (* x0 v2))
-         delta-b (- (+ (* u0 x1) (* x0 u2) (* u1 x2)) (* x1 u2) (* x0 u1) (* u0 x2))
-         delta-c (- (+ (* u0 v1 x2) (* v0 x1 u2) (* x0 u1 v2)) (* x0 v1 u2) (* v0 u1 x2) (* u0 x1 v2))
-         delta-d (- (+ (* y0 v1) (* v0 y2) (* y1 v2)) (* v1 y2) (* v0 y1) (* y0 v2))
-         delta-e (- (+ (* u0 y1) (* y0 u2) (* u1 y2)) (* y1 u2) (* y0 u1) (* u0 y2))
-         delta-f (- (+ (* u0 v1 y2) (* v0 y1 u2) (* y0 u1 v2)) (* y0 v1 u2) (* v0 u1 y2) (* u0 y1 v2)))
+         delta   (- (number+ (* u0 v1) (* v0 u2) (* u1 v2)) (* v1 u2) (* v0 u1) (* u0 v2))
+         delta-a (- (number+ (* x1 v1) (* v0 x2) (* x1 v2)) (* v1 x2) (* v0 x1) (* x0 v2))
+         delta-b (- (number+ (* u0 x1) (* x0 u2) (* u1 x2)) (* x1 u2) (* x0 u1) (* u0 x2))
+         delta-c (- (number+ (* u0 v1 x2) (* v0 x1 u2) (* x0 u1 v2)) (* x0 v1 u2) (* v0 u1 x2) (* u0 x1 v2))
+         delta-d (- (number+ (* y0 v1) (* v0 y2) (* y1 v2)) (* v1 y2) (* v0 y1) (* y0 v2))
+         delta-e (- (number+ (* u0 y1) (* y0 u2) (* u1 y2)) (* y1 u2) (* y0 u1) (* u0 y2))
+         delta-f (- (number+ (* u0 v1 y2) (* v0 y1 u2) (* y0 u1 v2)) (* y0 v1 u2) (* v0 u1 y2) (* u0 y1 v2)))
     (*ctx*.set-transform (/ delta-a delta) (/ delta-d delta) (/ delta-b delta) (/ delta-e delta) (/ delta-c delta) (/ delta-f delta))
     (*ctx*.draw-image *texture* 0 0)
     (*ctx*.restore)))
@@ -73,8 +73,8 @@
 (defvar *height*)
 
 (def-vertex vertex-project (vertex)
-  (= (vertex-px vertex) (+ (half *width*)  (* *width* (/ x z)))
-     (vertex-py vertex) (+ (half *height*) (* *width* (/ y z)))))
+  (= (vertex-px vertex) (number+ (half *width*)  (* *width* (/ x z)))
+     (vertex-py vertex) (number+ (half *height*) (* *width* (/ y z)))))
 
 (defun clear-canvas ()
   (with ((x y w h) (get-viewport))
@@ -87,7 +87,7 @@
 (defvar *z* 180)
 
 (defun avgz (!)
-  (/ (+ (third !.) (third .!.) (third ..!.) (third ...!.)) 4))
+  (/ (number+ (third !.) (third .!.) (third ..!.) (third ...!.)) 4))
 
 (defun smoothen-edges (ctx)
   (ctx.translate 0.5 0.5))
@@ -135,7 +135,7 @@
     (+! (vertex-z !) cz)
     (vertex-project !))
   (adolist faces
-    (= (face-average-z !) (/ (apply #'+ (filter #'vertex-z (face-vertices !))) 3)))
+    (= (face-average-z !) (/ (apply #'number+ (filter #'vertex-z (face-vertices !))) 3)))
   (adolist ((reverse (zsort faces)))
     (& (face? !)
        (funcall (face-renderer !) !))))
