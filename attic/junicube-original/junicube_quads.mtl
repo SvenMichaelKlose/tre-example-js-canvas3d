@@ -1,0 +1,64 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 26.04.2013 00:27:07
+
+newmtl wire_028089177
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.1098 0.3490 0.6941
+	Kd 0.1098 0.3490 0.6941
+	Ks 0.3500 0.3500 0.3500
+
+newmtl wire_138008110
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.5412 0.0314 0.4314
+	Kd 0.5412 0.0314 0.4314
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Material__96
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\vvvv_45beta28_new\media\Bilder\dokumenter17.juni west\53juni2_erhard.gif
+	map_Kd C:\vvvv_45beta28_new\media\Bilder\dokumenter17.juni west\53juni2_erhard.gif
+
+newmtl Material__97
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\vvvv_45beta28_new\media\Bilder\bilder 17.6.1953\17-juni-53-russische-panzer_183_183_100.jpg
+	map_Kd C:\vvvv_45beta28_new\media\Bilder\bilder 17.6.1953\17-juni-53-russische-panzer_183_183_100.jpg
+
+newmtl Material__95
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka C:\vvvv_45beta28_new\media\Bilder\17.juni53gross\Aufstand_17Juni1953.jpg
+	map_Kd C:\vvvv_45beta28_new\media\Bilder\17.juni53gross\Aufstand_17Juni1953.jpg

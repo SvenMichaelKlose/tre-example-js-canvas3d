@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2013-04-25T22:34:18Z</created><keywords></keywords><modified>2013-04-25T22:34:18Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="Map #2-image" name="Map #2"><init_from>file://C:\vvvv_45beta28_new\media\Bilder\dokumenter17.juni west\53juni2_erhard.gif</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="Material #96" name="Material #96">
+      <instance_effect url="#Material #96-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="Material #96-fx" name="Material #96">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.588000  0.588000 0.588000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Map #2-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>ADD</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">1.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">1.000000  1.000000 1.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="screens_01-lib" name="screens_01Mesh">
+      <mesh>
+        <source id="screens_01-POSITION">
+          <float_array id="screens_01-POSITION-array" count="24">
+-7.162902 -152.327255 -2.364594
+7.162903 -152.327255 -2.364594
+-7.162901 152.670685 -2.364594
+7.162904 152.670685 -2.364594
+-7.162903 -152.327225 398.875488
+7.162902 -152.327225 398.875488
+-7.162903 152.670731 398.875488
+7.162902 152.670731 398.875488
+</float_array>
+          <technique_common>
+            <accessor source="#screens_01-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="screens_01-Normal0">
+          <float_array id="screens_01-Normal0-array" count="108">
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+0.000000 -1.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+1.000000 -0.000000 0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#screens_01-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="screens_01-UV0">
+          <float_array id="screens_01-UV0-array" count="48">
+0.999498 0.012540
+0.000503 0.012540
+0.999495 1.011541
+0.000499 1.011541
+0.000500 0.012540
+0.999495 0.012540
+0.000503 1.011541
+0.999498 1.011541
+0.999498 0.999500
+0.000503 0.999500
+0.000505 0.000500
+0.999500 0.000500
+0.999500 0.012540
+0.999500 1.011541
+0.000500 1.011541
+0.000500 0.012540
+0.999501 0.999500
+0.000505 0.999500
+0.000503 0.000500
+0.999498 0.000500
+0.000500 1.011541
+0.000500 0.012540
+0.999500 0.012540
+0.999500 1.011541
+</float_array>
+          <technique_common>
+            <accessor source="#screens_01-UV0-array" count="24" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="screens_01-VERTEX">
+          <input semantic="POSITION" source="#screens_01-POSITION"/>
+        </vertices>
+        <triangles count="12" material="Material #96"><input semantic="VERTEX" offset="0" source="#screens_01-VERTEX"/><input semantic="NORMAL" offset="1" source="#screens_01-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#screens_01-UV0"/><p> 1 0 1 2 1 2 3 2 3 2 3 2 1 4 1 0 5 0 6 6 6 4 7 4 7 8 7 7 9 7 4 10 4 5 11 5 4 12 11 0 13 8 5 14 10 5 15 10 0 16 8 1 17 9 5 18 15 3 19 13 7 20 14 3 21 13 5 22 15 1 23 12 7 24 19 2 25 17 6 26 18 2 27 17 7 28 19 3 29 16 4 30 22 6 31 23 2 32 20 4 33 22 2 34 20 0 35 21</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="" name="">
+      <node name="screens_01" id="screens_01" sid="screens_01"><matrix sid="matrix">-1.000000 -0.000000 -0.000000 -249.870453 -0.000000 1.000000 -0.000000 248.802124 0.000000 -0.000000 -1.000000 111.528145 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#screens_01-lib"><bind_material><technique_common><instance_material symbol="Material #96" target="#Material #96"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.000000</start_time><end_time>3.333333</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#"></instance_visual_scene>
+  </scene>
+</COLLADA>
