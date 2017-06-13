@@ -1,5 +1,3 @@
-; Software–rendered 3D canvas – Copyright (c) 2013 Sven Michael Klose <pixel@copei.de>
-
 (defun whirl (vertices faces)
   (do-wait 10
     (update-canvas)
@@ -15,10 +13,10 @@
   (= document.body.style.margin 0)
   (disable-scrollbars)
   (with ((vertices faces) (make-3d-object *vertices* *faces*))
-    (= *texture* (make-video :width 640 :height 480 :webm "video.webm" :loop? t :autoplay? t))
+    (= *texture* (make-video :width 640 :height 480 :webm "video.mp4" :loop? t :autoplay? t))
     (document.body.add *texture*)
     (*texture*.hide)
     (= *texture*.muted t)
     (native-add-event-listener *texture* "play" #'(() (whirl vertices faces)))))
 
-(application.add-component #'junicube)
+(add-onload #'junicube)
