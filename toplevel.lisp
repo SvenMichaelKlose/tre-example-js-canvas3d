@@ -31,24 +31,24 @@
 (defvar *texture*)
 
 (defun face-projections (face)
-  (apply #'append (filter [list (vertex-px _) (vertex-py _)] (face-vertices face))))
+  (apply #'append (@ [list (vertex-px _) (vertex-py _)] (face-vertices face))))
 
 (defun draw-polygon (face)
   (*ctx*.save)
   (*ctx*.begin-path)
   (alet (car (face-vertices face))
     (*ctx*.move-to (vertex-px !) (vertex-py !)))
-  (adolist ((cdr (face-vertices face)))
-    (*ctx*.line-to (vertex-px !) (vertex-py !)))
+  (@ (i (cdr (face-vertices face)))
+    (*ctx*.line-to (vertex-px i) (vertex-py i)))
   (*ctx*.close-path)
   (*ctx*.clip)
   (with (v  (face-vertices face)
-         x0 (vertex-px (car v))
-         y0 (vertex-py (car v))
-         x1 (vertex-px (cadr v))
-         y1 (vertex-py (cadr v))
-         x2 (vertex-px (caddr v))
-         y2 (vertex-py (caddr v))
+         x0 (vertex-px v.)
+         y0 (vertex-py v.)
+         x1 (vertex-px .v.)
+         y1 (vertex-py .v.)
+         x2 (vertex-px ..v.)
+         y2 (vertex-py ..v.)
          u0 1280
          u1 0
          u2 0
@@ -114,37 +114,36 @@
 
 (defun zsort (faces)
   (return faces)
-  (let r (new bnode 0 "" nil)
-    (adolist faces
-      (r.add (face-average-z !) !))
+  (let r (new bnode 0 "" nil)   ; TODO: Fix sorting.
+    (@ (i faces)
+      (r.add (face-average-z i) i))
     (with-queue q
-      (with (x (r.get-first))
+      (let x (r.get-first)
         (while (= x (x.next))
                (queue-list q)
           (enqueue q x.value))))))
 
 (defun render-scene (vertices faces ax ay az cx cy cz)
-  (adolist vertices
-    (= (vertex-x !) (vertex-ox !))
-    (= (vertex-y !) (vertex-oy !))
-    (= (vertex-z !) (vertex-oz !)))
-  (adolist vertices
-    (vertex-rotate ! ax ay az)
-    (+! (vertex-x !) cx)
-    (+! (vertex-y !) cy)
-    (+! (vertex-z !) cz)
-    (vertex-project !))
-  (adolist faces
-    (= (face-average-z !) (/ (apply #'number+ (filter #'vertex-z (face-vertices !))) 3)))
-  (adolist ((reverse (zsort faces)))
-    (& (face? !)
-       (funcall (face-renderer !) !))))
+  (@ (i vertices)
+    (= (vertex-x i) (vertex-ox i))
+    (= (vertex-y i) (vertex-oy i))
+    (= (vertex-z i) (vertex-oz i)))
+  (@ (i vertices)
+    (vertex-rotate i ax ay az)
+    (+! (vertex-x i) cx)
+    (+! (vertex-y i) cy)
+    (+! (vertex-z i) cz)
+    (vertex-project i))
+  (@ (i faces)
+    (= (face-average-z i) (/ (apply #'number+ (@ #'vertex-z (face-vertices i))) 3)))
+  (@ (i (reverse (zsort faces)))
+    (& (face? i)
+       (funcall (face-renderer i) i))))
 
 (defun make-3d-object (vertices faces)
-  (with (v      (filter [make-vertex :ox _. :oy ._. :oz .._.]
-                        vertices)
+  (with (v      (@ [make-vertex :ox _. :oy ._. :oz .._.] vertices)
          v-map  (list-array v)
-         f      (filter [make-face :vertices (filter [aref v-map (-- _)] _)
-                                   :renderer #'draw-polygon]
-                        faces))
+         f      (@ [make-face :vertices (filter [aref v-map (-- _)] _)
+                              :renderer #'draw-polygon]
+                   faces))
     (values v f)))
