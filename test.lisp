@@ -5,7 +5,7 @@
 (fn whirl (vertices faces)
   (do-wait 10
     (update-canvas)
-    (clear-canvas)
+    (clear-canvas *ctx*)
     (render-scene vertices faces *x* *y* *z* 0 0 80)
     (++! *x*)
     (++! *y*)

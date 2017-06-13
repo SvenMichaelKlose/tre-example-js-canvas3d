@@ -4,11 +4,10 @@
 (var *width*)
 (var *height*)
 
-(fn clear-canvas ()
+(fn clear-canvas (ctx)
   (with ((x y w h) (get-viewport))
-    (alet *ctx*
-      (= !.fill-style "#000")
-      (!.fill-rect 0 0 w h))))
+    (= ctx.fill-style "#000")
+    (ctx.fill-rect 0 0 w h)))
 
 (fn smoothen-edges (ctx)
   (ctx.translate 0.5 0.5))
@@ -19,8 +18,8 @@
                (== h *height*))
       (= *width* w)
       (= *height* h)
-      (awhen *canvas*
-        (!.remove))
+      (!? *canvas*
+          (!.remove))
       (= *canvas* (new *element "canvas" (new :width w :height h)))
       (document.body.add *canvas*)
       (= *ctx* (*canvas*.get-context "2d"))
