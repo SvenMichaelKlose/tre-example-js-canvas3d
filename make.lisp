@@ -56,6 +56,7 @@
 
          '("box.lisp"
            "caroshi/lib/db/btree.lisp"
+           "vertex.lisp"
            "toplevel.lisp"
            "test.lisp"))
          :transpiler  *js-transpiler*
