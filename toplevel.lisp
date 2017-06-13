@@ -1,10 +1,3 @@
-;(fn scale (fac x y z)
-;  (list (* x fac) (* y fac) (* z fac)))
-
-(var *x* 0)
-(var *y* 0)
-(var *z* 180)
-
 (fn render-scene (vertices faces ax ay az cx cy cz)
   (@ (i vertices)
     (= (vertex-x i) (vertex-ox i))
@@ -20,7 +13,7 @@
     (= (face-average-z i) (/ (apply #'number+ (@ #'vertex-z (face-vertices i))) 3)))
   (@ (i (reverse (sort-faces faces)))
     (& (face? i)
-       (funcall (face-renderer i) i))))
+       (funcall (face-renderer i) *ctx* i *texture*))))
 
 (fn make-3d-object (vertices faces)
   (with (v      (@ [make-vertex :ox _. :oy ._. :oz .._.] vertices)

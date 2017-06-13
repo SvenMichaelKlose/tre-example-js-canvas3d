@@ -1,4 +1,8 @@
-(defun whirl (vertices faces)
+(var *x* 0)                                                                                               
+(var *y* 0)
+(var *z* 180)
+
+(fn whirl (vertices faces)
   (do-wait 10
     (update-canvas)
     (clear-canvas)
@@ -8,7 +12,7 @@
     (++! *z*)
     (whirl vertices faces)))
 
-(defun junicube ()
+(fn start-site ()
   (document-extend)
   (= document.body.style.margin 0)
   (disable-scrollbars)
@@ -19,4 +23,4 @@
     (= *texture*.muted t)
     (native-add-event-listener *texture* "play" #'(() (whirl vertices faces)))))
 
-(add-onload #'junicube)
+(add-onload #'start-site)
