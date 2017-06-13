@@ -33,8 +33,7 @@
                           (list+ "js/"
                                  `("milliseconds-since-1970.lisp"
                                    "wait.lisp"
-                                   "unicode.lisp"
-                                   "log.lisp"))
+                                   "unicode.lisp"))
                           (list+ "js/dom/"
                                  '("def-aos.lisp"
                                    "do.lisp"
@@ -53,10 +52,7 @@
                           (list+ "js/event/"
                                  '("native.lisp"
                                    "keycodes.lisp")))))
-         (list+ "caroshi/lib/init/"
-	            '("predefined-symbols.lisp"
-	              "application.lisp"
-	              "onload.lisp"))
+         '("caroshi/lib/add-onload.lisp")
 
          '("box.lisp"
            "caroshi/lib/db/btree.lisp"
