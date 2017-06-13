@@ -24,6 +24,8 @@
       (= *canvas* (new *element "canvas" (new :width w :height h)))
       (document.body.add *canvas*)
       (= *ctx* (*canvas*.get-context "2d"))
-      (smoothen-edges *ctx*)
-      (= *ctx*.image-smoothing-enabled nil)
-      (= *ctx*.moz-image-smoothing-enabled nil))))
+      (? t
+         (smoothen-edges *ctx*)
+         (progn
+           (= *ctx*.image-smoothing-enabled nil)
+           (= *ctx*.moz-image-smoothing-enabled nil))))))
