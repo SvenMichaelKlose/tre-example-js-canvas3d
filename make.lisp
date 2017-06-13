@@ -56,12 +56,12 @@
 
          '("box.lisp"
            "caroshi/lib/db/btree.lisp"
+           "canvas.lisp"
            "vertex.lisp"
            "face.lisp"
            "draw-face.lisp"
-           "canvas.lisp"
-           "toplevel.lisp"
-           "test.lisp"))
+           "object3d.lisp"
+           "toplevel.lisp"))
          :transpiler  *js-transpiler*
          :emitter     [make-html-script "compiled/index.html" _]))
 
