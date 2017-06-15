@@ -1,16 +1,17 @@
-(fn render (obj)
+(fn render (obj &key (x 0))
   (update-canvas)
   (clear-canvas *ctx*)
-  (render-object3d obj -45 0 0
+  (render-object3d obj x 0 0
                        0 0 200)
-  (do-wait 10 (render obj)))
+  (do-wait 10 (render obj :x (++ x))))
 
 (fn make-plane ()
   (with (vtl  (make-vertex :ox -80 :oy -50 :oz 0)
          vtr  (make-vertex :ox 80 :oy -50 :oz 0)
          vbl  (make-vertex :ox -80 :oy 50 :oz 0)
          vbr  (make-vertex :ox 80 :oy 50 :oz 0)
-         f    (make-face :vertices (list vtr vbr vbl) :renderer #'draw-face))
+         f    (make-face :vertices (list vtl vtr vbr vbl)
+                         :renderer [draw-face-filled *ctx* _ "#f00"]))
     (make-object3d :vertices (list vtl vtr vbl vbr)
                    :faces    (list f))))
 

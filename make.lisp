@@ -54,8 +54,7 @@
                                    "keycodes.lisp")))))
          '("caroshi/lib/add-onload.lisp")
 
-         '("box.lisp"
-           "caroshi/lib/db/btree.lisp"
+         '("caroshi/lib/db/btree.lisp"
            "canvas.lisp"
            "vertex.lisp"
            "face.lisp"

@@ -10,7 +10,7 @@
   (/ (number+ (third !.) (third .!.) (third ..!.) (third ...!.)) 4))
 
 (fn sort-faces (faces)
-  (let r (new bnode 0 "" nil)   ; TODO: Fix sorting.
+  (let r (new bnode 0 "" nil)
     (@ (i faces)
       (r.add (face-average-z i) i))
     (with-queue q
