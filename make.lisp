@@ -55,6 +55,10 @@
          '("caroshi/lib/add-onload.lisp")
 
          '("caroshi/lib/db/btree.lisp"
+           "caroshi/2d/timetable.lisp"
+           "caroshi/2d/timetable-player.lisp"
+           "caroshi/2d/timetable-utils.lisp"
+           "track-slots.lisp"
            "canvas.lisp"
            "vertex.lisp"
            "face.lisp"
