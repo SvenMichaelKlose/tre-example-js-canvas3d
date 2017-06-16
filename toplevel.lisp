@@ -1,7 +1,9 @@
 (fn render (obj &key (x 0))
   (update-canvas)
   (clear-canvas *ctx*)
-  (render-object3d obj x 0 0 0 0 200)
+  (= obj.z 200)
+  (= obj.rx x)
+  (obj.render)
   (do-wait 10 (render obj :x (++ x))))
 
 (fn make-plane ()
@@ -13,6 +15,13 @@
                         [draw-face-filled *ctx* _ "#00f"]))
     (new object3d (list vtl vtr vbl vbr)
                   f)))
+
+(fn make-animation ()
+  (with (tt   (new timetable))
+    (tt.add 3000 (new track-slot (list "z")
+                                 (list 0)
+                                 (list 360))
+    tt)))
 
 (fn start-site ()
   (document-extend)

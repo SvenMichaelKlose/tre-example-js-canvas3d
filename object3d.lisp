@@ -1,12 +1,34 @@
 (defclass object3d (vertices_ faces_)
   (= vertices vertices_
      faces (ensure-list faces_))
+  (= x 0
+     y 0
+     z 0
+     rx 0
+     ry 0
+     rz 0)
   this)
 
 (defmember object3d
   x y z
+  rx ry rz
   vertices
   faces)
+
+(defmethod object3d render ()
+  (@ (i vertices)
+    (= i.x i.ox)
+    (= i.y i.oy)
+    (= i.z i.oz))
+  (@ (i vertices)
+    (i.rotate rx ry rz)
+    (= i.x (number+ i.x x))
+    (= i.y (number+ i.y y))
+    (= i.z (number+ i.z z))
+    (i.project))
+  (@ (i (reverse (sort-faces faces)))
+    (& (face? i)
+       (funcall i.renderer i))))
 
 (finalize-class object3d)
 
@@ -17,18 +39,3 @@
                               :renderer renderer]
                    faces))
     (new object3d v f)))
-
-(fn render-object3d (obj ax ay az cx cy cz)
-  (@ (i obj.vertices)
-    (= i.x i.ox)
-    (= i.y i.oy)
-    (= i.z i.oz))
-  (@ (i obj.vertices)
-    (i.rotate ax ay az)
-    (= i.x (number+ i.x cx))
-    (= i.y (number+ i.y cy))
-    (= i.z (number+ i.z cz))
-    (i.project))
-  (@ (i (reverse (sort-faces obj.faces)))
-    (& (face? i)
-       (funcall i.renderer i))))
