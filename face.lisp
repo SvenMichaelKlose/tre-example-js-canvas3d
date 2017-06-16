@@ -1,18 +1,21 @@
-(defstruct face
+(defclass face (_vertices _renderer)
+  (= vertices _vertices
+     renderer _renderer)
+  this)
+
+(defmember face
   vertices
-  average-z
   renderer)
 
-(fn face-projections (face)
-  (apply #'append (@ [list (vertex-px _) (vertex-py _)] (face-vertices face))))
+(defmethod face average-z ()
+  (/ (apply #'number+ (@ [identity _.z] vertices)) (length vertices)))
 
-(fn avgz (!)
-  (/ (number+ (third !.) (third .!.) (third ..!.) (third ...!.)) 4))
+(finalize-class face)
 
 (fn sort-faces (faces)
   (let r (new bnode 0 "" nil)
     (@ (i faces)
-      (r.add (face-average-z i) i))
+      (r.add (i.average-z) i))
     (with-queue q
       (let x (r.get-first)
         (while (= x (x.next))

@@ -1,16 +1,17 @@
 (fn make-face-path (ctx face)
   (ctx.begin-path)
-  (!= (car (face-vertices face))
-    (ctx.move-to !.px !.py))
-  (@ (i (cdr (face-vertices face)))
-    (ctx.line-to i.px i.py))
+  (let v face.vertices
+    (!= v.
+      (ctx.move-to !.px !.py))
+    (@ (i .v)
+      (ctx.line-to i.px i.py)))
   (ctx.close-path))
 
 (fn draw-face-image (ctx face texture)
   (ctx.save)
   (make-face-path ctx face)
   (ctx.clip)
-  (with (v  (face-vertices face)
+  (with (v  (face.vertices)
          x0 (car px)
          y0 (car py)
          x1 (cadr px)

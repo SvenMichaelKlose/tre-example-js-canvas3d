@@ -9,8 +9,8 @@
          vtr  (new vertex 80 -50 0)
          vbl  (new vertex -80 50 0)
          vbr  (new vertex 80 50 0)
-         f    (make-face :vertices (list vtl vtr vbr vbl)
-                         :renderer [draw-face-filled *ctx* _ "#00f"]))
+         f    (new face (list vtl vtr vbr vbl)
+                        [draw-face-filled *ctx* _ "#00f"]))
     (make-object3d :vertices (list vtl vtr vbl vbr)
                    :faces    (list f))))
 
