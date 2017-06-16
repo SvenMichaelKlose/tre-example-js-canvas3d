@@ -1,9 +1,9 @@
 (fn make-face-path (ctx face)
   (ctx.begin-path)
-  (alet (car (face-vertices face))
-    (ctx.move-to (vertex-px !) (vertex-py !)))
+  (!= (car (face-vertices face))
+    (ctx.move-to !.px !.py))
   (@ (i (cdr (face-vertices face)))
-    (ctx.line-to (vertex-px i) (vertex-py i)))
+    (ctx.line-to i.px i.py))
   (ctx.close-path))
 
 (fn draw-face-image (ctx face texture)
@@ -11,18 +11,18 @@
   (make-face-path ctx face)
   (ctx.clip)
   (with (v  (face-vertices face)
-         x0 (vertex-px v.)
-         y0 (vertex-py v.)
-         x1 (vertex-px .v.)
-         y1 (vertex-py .v.)
-         x2 (vertex-px ..v.)
-         y2 (vertex-py ..v.)
-         u0 1280
+         x0 (car px)
+         y0 (car py)
+         x1 (cadr px)
+         y1 (cadr py)
+         x2 (caddr px)
+         y2 (caddr py)
+         u0 1280    ; TODO: Oops. Calculate this!
          u1 0
          u2 0
          v0 0
          v1 0
-         v2 768
+         v2 768     ; TODO: Oops. Calculate this!
          delta   (- (number+ (* u0 v1) (* v0 u2) (* u1 v2)) (* v1 u2) (* v0 u1) (* u0 v2))
          delta-a (- (number+ (* x1 v1) (* v0 x2) (* x1 v2)) (* v1 x2) (* v0 x1) (* x0 v2))
          delta-b (- (number+ (* u0 x1) (* x0 u2) (* u1 x2)) (* x1 u2) (* x0 u1) (* u0 x2))

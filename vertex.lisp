@@ -1,4 +1,10 @@
-(defstruct vertex
+(defclass vertex (_x _y _z)
+  (= ox _x
+     oy _y
+     oz _z)
+  this)
+
+(defmember vertex
   ox oy oz      ; Original coordinates
   x y z         ; Rotated/translated coordinates
   px py)        ; Projected coordinates
@@ -7,23 +13,24 @@
   (with (others  (remove axis '(x y z))
          n       others.
          m       .others.)
-    `(def-vertex ,($ 'vertex-rotate- axis) (vertex angle)
-       (with (rad  (deg-rad angle)
-              t1   (- (* ,n (cos rad)) (* ,m (sin rad)))
-              t2   (+ (* ,n (sin rad)) (* ,m (cos rad))))
-         (= (,($ 'vertex- axis) vertex) ,axis)
-         (= (,($ 'vertex- n) vertex) t1)
-         (= (,($ 'vertex- m) vertex) t2)))))
+    `(defmethod vertex ,($ 'rotate- axis) (angle)
+       (with (rad (deg-rad angle)
+              on  ,n
+              om  ,m)
+         (= ,n (- (* on (cos rad)) (* om (sin rad))))
+         (= ,m (+ (* on (sin rad)) (* om (cos rad))))))))
 
 (define-vertex-rotation x)
 (define-vertex-rotation y)
 (define-vertex-rotation z)
 
-(fn vertex-rotate (v x y z)
-  (vertex-rotate-x v x)
-  (vertex-rotate-y v y)
-  (vertex-rotate-z v z))
+(defmethod vertex rotate (_x _y _z)
+  (rotate-x _x)
+  (rotate-y _y)
+  (rotate-z _z))
 
-(def-vertex vertex-project (vertex)
-  (= (vertex-px vertex) (number+ (half *width*)  (* *width* (/ x z)))
-     (vertex-py vertex) (number+ (half *height*) (* *width* (/ y z)))))
+(defmethod vertex project ()
+  (= px (number+ (half *width*)  (* *width* (/ x z)))
+     py (number+ (half *height*) (* *width* (/ y z)))))
+
+(finalize-class vertex)
