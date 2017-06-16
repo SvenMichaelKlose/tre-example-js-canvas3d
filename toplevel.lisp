@@ -11,8 +11,8 @@
          vbr  (new vertex 80 50 0)
          f    (new face (list vtl vtr vbr vbl)
                         [draw-face-filled *ctx* _ "#00f"]))
-    (make-object3d :vertices (list vtl vtr vbl vbr)
-                   :faces    (list f))))
+    (new object3d (list vtl vtr vbl vbr)
+                  f)))
 
 (fn start-site ()
   (document-extend)
