@@ -35,7 +35,7 @@
 (fn make-object3d-from-vertices-and-faces (vertices faces renderer)
   (with (v      (@ [new vertex _. ._. .._.] vertices)
          v-map  (list-array v)
-         f      (@ [make-face :vertices (filter [aref v-map (-- _)] _)
-                              :renderer renderer]
+         f      (@ [new face (filter [aref v-map (-- _)] _)
+                             renderer]
                    faces))
     (new object3d v f)))

@@ -1,0 +1,13 @@
+# JavaScript 3D canvas written in tré
+
+Renders a video in software in your browser.  Expects a
+video file named 'video.mp4' in this directory.
+
+You need tré installed. See also
+https://github.com/SvenMichaelKlose/tre/
+
+## Running it
+
+Run './install-modules.sh', then './make.sh', then
+launch 'compiled/index.html' with Firefox.  For some
+unknown reason it doesn't work with Chrom.
