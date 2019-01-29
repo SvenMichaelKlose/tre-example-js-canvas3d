@@ -13,7 +13,7 @@
 
          (list+ "tre_modules/"
                 (+ (list+ "shared/"
-	                      `("continued.lisp"
+                          `("continued.lisp"
                             "btree.lisp"))
                    (list+ "js/"
                           `("milliseconds-since-1970.lisp"
