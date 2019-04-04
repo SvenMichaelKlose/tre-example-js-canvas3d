@@ -24,7 +24,6 @@
                             "def-aos.lisp"
                             "do.lisp"
                             "clone-element-array.lisp"
-                            "objects/native-symbols.lisp"
                             "objects/node-predicates.lisp"
                             "objects/visible-node.lisp"
                             "objects/text-node.lisp"
